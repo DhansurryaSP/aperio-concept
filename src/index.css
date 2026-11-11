@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-graphite: #0f100e;
+  --color-graphite-2: #171815;
+  --color-graphite-3: #22231f;
+  --color-bone: #ece7dc;
+  --color-bone-dim: #bdb8ad;
+  --color-ash: #8a877f;
+  --color-paper: #f4f1ea;
+  --color-ink: #16170f;
+  --color-signal: #ff5a1f;
+  --color-sage: #9fb39a;
+  --color-slate: #8fa3b8;
+  --color-sand: #d8c39a;
+  --color-clay: #c98d76;
+
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, sans-serif;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    @apply bg-graphite text-bone font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--color-signal); color: var(--color-graphite); }
+  :focus-visible { outline: 2px solid var(--color-signal); outline-offset: 3px; border-radius: 6px; }
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  font-variation-settings: "opsz" 96;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@utility shell {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
